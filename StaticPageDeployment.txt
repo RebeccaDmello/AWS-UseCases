@@ -1,4 +1,4 @@
-CLOUD9 , AWS CODECOMMIT, AWS AMPLIFY, S3
+CLOUD9(IDE) , AWS CODECOMMIT, AWS AMPLIFY, S3 (storage)
 
 Imp - https://webapp.serverlessworkshops.io/
 
