@@ -1,1 +1,7 @@
-https://webapp.serverlessworkshops.io/
+Imp - https://webapp.serverlessworkshops.io/
+
+Only for reference - not used in the demo
+https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/module-1/
+
+CodeCommit - https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html#setting-up-gc-iam
+
