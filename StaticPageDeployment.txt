@@ -1,7 +1,54 @@
+CLOUD9 , AWS CODECOMMIT, AWS AMPLIFY, S3
+
 Imp - https://webapp.serverlessworkshops.io/
 
 Only for reference - not used in the demo
 https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/module-1/
 
 CodeCommit - https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html#setting-up-gc-iam
+
+Cloud9
+AWS CodeCommit
+AWS Amplify Console
+
+Steps for hosting a static web page on AWS
+1. AWS management console -> select services -> select Cloud9 under developer tools
+create environment -> Name "wildrydes-webapp-dev" -> next -> create envi
+2. Settingup Cloud9 IDE
+Inside terminal prompt -> Run AWS CLI commands
+-> aws sts get-caller-identity
+3. Static web hosting (**AWS Amplify Console and AWS CodeCommit**)
+a.Select Region
+b.Create git repository using CodeCommit
+(setting up your codecommit repository)
+- aws codecommit create-repository \ --repository-name wild-rydes
+c.Clone existing workshop repository from github
+-git clone https://github.com/aws-samples/aws-serverless-webapp-workshop.git
+d. Change into the workshop repository directory:
+- cd aws-serverless-webapp-workshop
+e. Split out the WildRydesVue code 
+- sudo yum install git-subtree -y
+git subtree split -p resources/code/WildRydesVue -b WildRydesVue
+f. create a new directory for CodeCommit repo
+mkdir ../wild-rydes && cd ../wild-rydes
+g. git init
+h. git pull ../aws-serverless-webapp-workshop WildRydesVue
+i. git remote add origin codecommit://wild-rydes
+j. git push -u origin master
+k. rm -rf ../aws-serverless-webapp-workshop
+4. DEPLOY using AWS Amplify Console
+- Launch Amplify Console
+- select Host your web app
+- Select AWS CodeCommit  -> continue
+- Dropdown select Repository and master branch -> next
+- Create new environment -> prod
+- Create new role, check amplify -> next permissions -> tags -> review
+- Role name: wildrydes-backend-role -> create role
+- search for wildrydes-backend-role from search filter -> click the role name
+- Attach policies under PERMISSIONS(Don't add in other tab), search for AWSCodeCommitReadOnly  attach policy
+- close this tab and return to AWS Amplify Build configure console
+- next -> review and save/deploy
+
+
+
 
